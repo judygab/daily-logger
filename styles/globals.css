@@ -20,3 +20,14 @@ a {
   border-radius: 5px !important;
   border: 1px solid black !important;
 }
+
+.header {
+  border-bottom: 1px solid rgba(230, 230, 230, 1);
+}
+
+.sidebar {
+  border-left: 1px solid rgba(230, 230, 230, 1);
+  min-height: 100vh;
+  display: block;
+  width: 30%;
+}
