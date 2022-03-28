@@ -14,3 +14,9 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.btn-transparent, .transparent {
+  background-color: inherit !important;
+  border-radius: 5px !important;
+  border: 1px solid black !important;
+}

@@ -8,11 +8,11 @@ export const Header: React.FC<HeaderProps> = (props) => {
   const DisplayButtons = () => {
     if (props.isLoggedIn) {
       return (
-        <Button>Logout</Button>
+        <Button className="transparent" variant="transparent">Logout</Button>
       )
     } else {
       return (
-        <Button>Login</Button>
+        <Button className="transparent" variant="transparent">Login</Button>
       )
     }
   }
