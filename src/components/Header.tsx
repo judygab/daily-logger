@@ -20,6 +20,7 @@ export const Header: React.FC<HeaderProps> = (props) => {
   return (
     <Navbar className="header">
       <Container>
+        <Button>Menu</Button>
         <Navbar.Brand href="#home">Logo</Navbar.Brand>
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-end">
