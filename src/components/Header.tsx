@@ -2,6 +2,7 @@ import { Navbar, Container, Button } from "react-bootstrap";
 
 interface HeaderProps {
   isLoggedIn?: boolean
+  openMenu: () => void
 }
 export const Header: React.FC<HeaderProps> = (props) => {
 
@@ -20,7 +21,7 @@ export const Header: React.FC<HeaderProps> = (props) => {
   return (
     <Navbar className="header">
       <Container>
-        <Button>Menu</Button>
+        {props.openMenu && <Button onClick={() => props.openMenu()}>Menu</Button>}
         <Navbar.Brand href="#home">Logo</Navbar.Brand>
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-end">

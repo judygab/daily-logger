@@ -30,11 +30,10 @@ a {
   min-height: 100vh;
   display: block;
   max-width: 46.2rem;
-  flex: 1 0 46.2rem;
+  flex-grow: 1;
 }
 
 .menu {
-  flex: 0 0 22rem;
-  height: 100%;
-  width: 22rem;
+  width: 13rem;
+  background-color: rgba(245,245,245,1);
 }

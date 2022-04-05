@@ -1,6 +1,6 @@
 type Menu = {
   title: string,
-  onClick:? () => void,
+  onClick?: () => void,
   path?: string,
   iconPath?: string,
 }
