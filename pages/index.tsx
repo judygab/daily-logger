@@ -5,6 +5,7 @@ import styles from '../styles/Home.module.css'
 import SearhBar from "../src/components/SearchBar";
 import Box, { BoxProps } from '@mui/material/Box';
 import { purple } from '@mui/material/colors';
+import { Filters } from "../src/containers/Filters";
 
 const Home: NextPage = () => {
   return (
@@ -12,7 +13,8 @@ const Home: NextPage = () => {
       <Box
         sx={{
           display: 'flex',
-          justifyContent: 'center',
+          flexDirection: 'column',
+          alignItems: 'center',
           p: 1,
           m: 1,
           bgcolor: purple[500],
@@ -23,6 +25,7 @@ const Home: NextPage = () => {
         }}
         >
         <SearhBar />
+        <Filters />
       </Box>
     </div>
   )
