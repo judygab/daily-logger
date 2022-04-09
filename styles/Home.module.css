@@ -114,3 +114,7 @@
     flex-direction: column;
   }
 }
+
+.heroBackGround {
+  background-color: var(--blue);
+}
