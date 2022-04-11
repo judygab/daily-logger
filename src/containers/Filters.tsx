@@ -1,5 +1,6 @@
 import Box, { BoxProps } from '@mui/material/Box';
 import Button from '@mui/material/Button';
+import MultipleSelectChip from "../components/MultiSelect";
 
 export const Filters = () => {
   return (
@@ -11,7 +12,7 @@ export const Filters = () => {
       display: 'flex',
       justifyContent: 'space-between',
     }}>
-      Filters here
+      <MultipleSelectChip />
       <Button disabled>Clear All</Button>
     </Box>
   )
