@@ -6,8 +6,11 @@ import SearhBar from "../src/components/SearchBar";
 import Box, { BoxProps } from '@mui/material/Box';
 import { purple } from '@mui/material/colors';
 import { Filters } from "../src/containers/Filters";
+import { useSelector, useDispatch, RootStateOrAny } from "react-redux";
 
 const Home: NextPage = () => {
+  const state = useSelector((state: RootStateOrAny) => state);
+  console.log(state);
   return (
     <div className={styles.container}>
       <Box
