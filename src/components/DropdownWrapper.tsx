@@ -46,10 +46,11 @@ const StyledMenu = styled((props: MenuProps) => (
 }));
 
 interface DropdownWrapperProps {
-  title: string
+  title: string,
+  children: JSX.Element[] | JSX.Element
 }
 
-export const DropdownWrapper: React.FC<DropdownWrapperProps> = ({ title }) => {
+export const DropdownWrapper: React.FC<DropdownWrapperProps> = ({ title, children }) => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
@@ -88,7 +89,7 @@ export const DropdownWrapper: React.FC<DropdownWrapperProps> = ({ title }) => {
         open={open}
         onClose={handleClose}
       >
-        <Box>this is a box</Box>
+        <Box>{children}</Box>
       </StyledMenu>
     </div>
   );
