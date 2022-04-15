@@ -1,4 +1,4 @@
-[{"id":1,"transaction_name":"Wine - Rosso Del Veronese Igt","amount":"$70.71","category":"Baby","transaction_vendor":"Vimbo"},
+export const transactions = [{"id":1,"transaction_name":"Wine - Rosso Del Veronese Igt","amount":"$70.71","category":"Baby","transaction_vendor":"Vimbo"},
 {"id":2,"transaction_name":"Rum - Dark, Bacardi, Black","amount":"$106.56","category":"Grocery","transaction_vendor":"Oodoo"},
 {"id":3,"transaction_name":"Nantucket - Carrot Orange","amount":"$573.18","category":"Industrial","transaction_vendor":"Jaxnation"},
 {"id":4,"transaction_name":"Clementine","amount":"$278.80","category":"Shoes","transaction_vendor":"Youbridge"},
@@ -97,4 +97,4 @@
 {"id":97,"transaction_name":"Frangelico","amount":"$764.46","category":"Shoes","transaction_vendor":"Gigashots"},
 {"id":98,"transaction_name":"Icecream - Dstk Super Cone","amount":"$893.26","category":"Shoes","transaction_vendor":"Realblab"},
 {"id":99,"transaction_name":"Ecolab - Ster Bac","amount":"$169.96","category":"Electronics","transaction_vendor":"Divavu"},
-{"id":100,"transaction_name":"Pepper - Julienne, Frozen","amount":"$154.05","category":"Home","transaction_vendor":"Feedbug"}]
+{"id":100,"transaction_name":"Pepper - Julienne, Frozen","amount":"$154.05","category":"Home","transaction_vendor":"Feedbug"}];

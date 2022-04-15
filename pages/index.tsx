@@ -7,10 +7,24 @@ import Box, { BoxProps } from '@mui/material/Box';
 import { purple } from '@mui/material/colors';
 import { Filters } from "../src/containers/Filters";
 import { useSelector, useDispatch, RootStateOrAny } from "react-redux";
+import { DataTable } from "../src/components/DataTable";
+import { transactions } from "../src/data/mock_transactions";
 
 const Home: NextPage = () => {
   const state = useSelector((state: RootStateOrAny) => state);
   console.log(state);
+
+  const COLUMNS = [
+    "Transaction Name",
+    "Amount",
+    "Category",
+    "Vendor"
+  ]
+
+  let categories = Array.from(new Set(transactions.map(transaction => transaction.category)));
+  let names = Array.from(new Set(transactions.map(transaction => transaction.transaction_name)));
+  let amountRange = [0, 1000];
+
   return (
     <div className={styles.container}>
       <Box
@@ -30,6 +44,10 @@ const Home: NextPage = () => {
         <SearhBar />
         <Filters />
       </Box>
+      <DataTable
+        columns={COLUMNS}
+        data={transactions}
+      />
     </div>
   )
 }
