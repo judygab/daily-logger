@@ -4,6 +4,7 @@ import MultipleSelectChip from "../components/MultiSelect";
 import { DropdownWrapper } from "../components/DropdownWrapper";
 import { RangeSlider } from "../components/RangeSlider";
 import styles from "../../styles/Filters.module.css";
+import { AutoCompleteCheckboxes } from "../components/AutoCompleteChecboxes";
 
 export const Filters = () => {
   return (
