@@ -19,19 +19,6 @@ const MenuProps = {
   },
 };
 
-const names = [
-  'Oliver Hansen',
-  'Van Henry',
-  'April Tucker',
-  'Ralph Hubbard',
-  'Omar Alexander',
-  'Carlos Abbott',
-  'Miriam Wagner',
-  'Bradley Wilkerson',
-  'Virginia Andrews',
-  'Kelly Snyder',
-];
-
 function getStyles(name: string, personName: readonly string[], theme: Theme) {
   return {
     fontWeight:
@@ -41,7 +28,12 @@ function getStyles(name: string, personName: readonly string[], theme: Theme) {
   };
 }
 
-export default function MultipleSelectChip() {
+interface MultipleSelectChipProps {
+  title: string
+  list: Array<string>
+}
+
+export const MultipleSelectChip: React.FC<MultipleSelectChipProps> = ({ title, list }) => {
   const theme = useTheme();
   const [personName, setPersonName] = React.useState<string[]>([]);
 
@@ -58,7 +50,7 @@ export default function MultipleSelectChip() {
   return (
     <div>
       <FormControl sx={{ m: 1, width: 100 }}>
-        <InputLabel id="demo-multiple-chip-label">Chip</InputLabel>
+        <InputLabel id="demo-multiple-chip-label">{title}</InputLabel>
         <Select
           labelId="demo-multiple-chip-label"
           id="demo-multiple-chip"
@@ -76,7 +68,7 @@ export default function MultipleSelectChip() {
           )}
           MenuProps={MenuProps}
         >
-          {names.map((name) => (
+          {list.map((name) => (
             <MenuItem
               key={name}
               value={name}

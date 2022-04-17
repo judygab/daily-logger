@@ -1,12 +1,20 @@
 import Box, { BoxProps } from '@mui/material/Box';
 import Button from '@mui/material/Button';
-import MultipleSelectChip from "../components/MultiSelect";
+import { MultipleSelectChip } from "../components/MultiSelect";
 import { DropdownWrapper } from "../components/DropdownWrapper";
 import { RangeSlider } from "../components/RangeSlider";
 import styles from "../../styles/Filters.module.css";
 import { AutoCompleteCheckboxes } from "../components/AutoCompleteChecboxes";
 
-export const Filters = () => {
+export const Filters = ({
+  categories,
+  names,
+  amountRange
+}: {
+  categories: Array<string>,
+  names: Array<string>,
+  amountRange: Array<number>
+}) => {
   return (
     <Box sx={{
       width: '600px',
@@ -17,7 +25,10 @@ export const Filters = () => {
       justifyContent: 'space-between',
     }}>
       <div className={styles.filtersContainer}>
-        <MultipleSelectChip />
+        <MultipleSelectChip
+          title="Categories"
+          list={categories}
+        />
         <DropdownWrapper title="dropdown">
           <RangeSlider />
         </DropdownWrapper>

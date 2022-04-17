@@ -42,7 +42,11 @@ const Home: NextPage = () => {
         }}
         >
         <SearhBar />
-        <Filters />
+        <Filters
+          categories={categories}
+          names={names}
+          amountRange={amountRange}
+        />
       </Box>
       <DataTable
         columns={COLUMNS}
