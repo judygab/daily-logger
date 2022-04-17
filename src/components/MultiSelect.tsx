@@ -49,7 +49,7 @@ export const MultipleSelectChip: React.FC<MultipleSelectChipProps> = ({ title, l
 
   return (
     <div>
-      <FormControl sx={{ m: 1, width: 100 }}>
+      <FormControl sx={{ m: 1, width: 150 }}>
         <InputLabel id="demo-multiple-chip-label">{title}</InputLabel>
         <Select
           labelId="demo-multiple-chip-label"

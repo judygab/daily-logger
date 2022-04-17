@@ -9,6 +9,7 @@ import { Filters } from "../src/containers/Filters";
 import { useSelector, useDispatch, RootStateOrAny } from "react-redux";
 import { DataTable } from "../src/components/DataTable";
 import { transactions } from "../src/data/mock_transactions";
+import { Divider } from "../src/components/Divider";
 
 const Home: NextPage = () => {
   const state = useSelector((state: RootStateOrAny) => state);
@@ -23,6 +24,7 @@ const Home: NextPage = () => {
 
   let categories = Array.from(new Set(transactions.map(transaction => transaction.category)));
   let names = Array.from(new Set(transactions.map(transaction => transaction.transaction_name)));
+  let vendorNames = Array.from(new Set(transactions.map(transaction => transaction.transaction_vendor)));
   let amountRange = [0, 1000];
 
   return (
@@ -36,16 +38,18 @@ const Home: NextPage = () => {
           m: 1,
           bgcolor: purple[500],
           borderRadius: 1,
-          width: '70%',
           margin: 'auto',
           height: '400px'
         }}
         >
+        <h1 className={styles.searchHeader}>Search Transactions</h1>
         <SearhBar />
+        <Divider />
         <Filters
           categories={categories}
           names={names}
           amountRange={amountRange}
+          vendorNames={vendorNames}
         />
       </Box>
       <DataTable
