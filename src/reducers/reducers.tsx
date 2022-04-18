@@ -2,10 +2,10 @@ import * as redux from 'redux';
 import { ThunkDispatch } from 'redux-thunk';
 import { Action } from 'typesafe-actions';
 
-import userReducer from './onereducer';
+import filtersReducer from './filtersreducer';
 
 export const rootReducer = redux.combineReducers({
-  userReducer,
+  filtersReducer,
 });
 
 export type AppThunkDispatch = ThunkDispatch<RootState, void, Action>;

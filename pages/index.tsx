@@ -10,10 +10,11 @@ import { useSelector, useDispatch, RootStateOrAny } from "react-redux";
 import { DataTable } from "../src/components/DataTable";
 import { transactions } from "../src/data/mock_transactions";
 import { Divider } from "../src/components/Divider";
+import { clearFilters, updateFilters} from "../src/actions/actions";
 
 const Home: NextPage = () => {
   const state = useSelector((state: RootStateOrAny) => state);
-  console.log(state);
+  const dispatch = useDispatch();
 
   const COLUMNS = [
     "Transaction Name",
@@ -52,6 +53,7 @@ const Home: NextPage = () => {
           vendorNames={vendorNames}
         />
       </Box>
+      <button onClick={() => {dispatch(updateFilters(['fef']))}}>test</button>
       <DataTable
         columns={COLUMNS}
         data={transactions}
