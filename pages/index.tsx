@@ -13,8 +13,6 @@ import { Divider } from "../src/components/Divider";
 import { clearFilters, updateFilters} from "../src/actions/actions";
 
 const Home: NextPage = () => {
-  const state = useSelector((state: RootStateOrAny) => state);
-  const dispatch = useDispatch();
 
   const COLUMNS = [
     "Transaction Name",
@@ -40,6 +38,7 @@ const Home: NextPage = () => {
           bgcolor: purple[500],
           borderRadius: 1,
           margin: 'auto',
+          marginBottom: '10px',
           height: '400px'
         }}
         >

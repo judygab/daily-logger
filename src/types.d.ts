@@ -1,4 +1,4 @@
-type transaction = {
+type Transaction = {
   id: number,
   transaction_name: string,
   amount: string,
