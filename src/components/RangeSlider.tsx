@@ -7,8 +7,11 @@ export const RangeSlider = ({ onHandleChange } : { onHandleChange : (updatedRang
 
   const handleChange = (event: Event, newValue: number | number[]) => {
     setValue(newValue as number[]);
-    onHandleChange(newValue as number[]);
   };
+
+  const handleOnDragStop = () => {
+    onHandleChange(value as number[]);
+  }
 
   return (
     <Box sx={{ width: 300, paddingTop: '30px' }}>
@@ -16,6 +19,7 @@ export const RangeSlider = ({ onHandleChange } : { onHandleChange : (updatedRang
             getAriaLabel={() => 'Range'}
             value={value}
             onChange={handleChange}
+            onChangeCommitted={handleOnDragStop}
             valueLabelDisplay="on"
           />
     </Box>

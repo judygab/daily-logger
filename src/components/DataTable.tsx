@@ -17,10 +17,11 @@ export const DataTable: React.FC<DataTableProps> = ({ columns, data }) => {
   const filters = useSelector((state: RootStateOrAny) => state.filtersReducer);
 
   const shouldDisplay = (transaction: Transaction) => {
+      let price = parseInt(transaction.amount.replace('$', ''));
       let matchesCategory = filters.categories.length > 0 ? filters.categories.some((category: string) => category == transaction.category) : true;
       let matchesVendor = filters.vendors.length> 0 ? filters.vendors.some((vendor: string) => vendor == transaction.transaction_vendor): true;
-      // TODO: matches price
-      return matchesCategory && matchesVendor;
+      let matchesPrice = (filters.price && filters.price.length == 2) ? (price >= filters.price[0] && price <= filters.price[1]) : true;
+      return matchesCategory && matchesVendor && matchesPrice;
   }
 
   const filteredData = data.filter((transaction: Transaction) => shouldDisplay(transaction));
