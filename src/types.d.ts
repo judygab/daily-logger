@@ -9,5 +9,6 @@ type Transaction = {
 type IFilterData = {
   categories: Array<String>,
   vendors: Array<String>,
-  price?: [number, number]
+  price?: [number, number],
+  searchText: string
 }

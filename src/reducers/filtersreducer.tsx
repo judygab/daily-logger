@@ -6,6 +6,7 @@ import { actionConsts} from "../definitions/actionConsts";
 const filterState: IFilterData = {
   categories: [],
   vendors: [],
+  searchText: '',
 }
 
 const filtersReducer: Reducer<IFilterData, ActionType<any>> = (

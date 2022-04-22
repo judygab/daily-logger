@@ -13,6 +13,7 @@ import { Divider } from "../src/components/Divider";
 import { clearFilters, updateFilters} from "../src/actions/actions";
 
 const Home: NextPage = () => {
+  const dispatch = useDispatch();
 
   const COLUMNS = [
     "Transaction Name",
@@ -25,6 +26,11 @@ const Home: NextPage = () => {
   let names = Array.from(new Set(transactions.map(transaction => transaction.transaction_name)));
   let vendorNames = Array.from(new Set(transactions.map(transaction => transaction.transaction_vendor)));
   let amountRange = [0, 1000];
+
+  // Search Bar Value Update
+  const onSearchTextUpdate = (text: string) => {
+    dispatch(updateFilters('searchText', text));
+  }
 
   return (
     <div className={styles.container}>
@@ -43,7 +49,9 @@ const Home: NextPage = () => {
         }}
         >
         <h1 className={styles.searchHeader}>Search Transactions</h1>
-        <SearhBar />
+        <SearhBar
+          onInputUpdate={onSearchTextUpdate}
+        />
         <Divider />
         <Filters
           categories={categories}

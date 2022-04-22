@@ -5,7 +5,7 @@ import { DropdownWrapper } from "../components/DropdownWrapper";
 import { RangeSlider } from "../components/RangeSlider";
 import styles from "../../styles/Filters.module.css";
 import { AutoCompleteCheckboxes } from "../components/AutoCompleteChecboxes";
-import { clearFilters, updateFilters} from "../actions/actions";
+import { clearFilters, updateFilters } from "../actions/actions";
 import { useSelector, useDispatch, RootStateOrAny } from "react-redux";
 
 export const Filters = ({
@@ -36,6 +36,11 @@ export const Filters = ({
     dispatch(updateFilters('vendors', vendors));
   }
 
+  // clear filters
+  const clearAll = () => {
+    dispatch(clearFilters());
+  }
+
   return (
     <Box sx={{
       width: '780px',
@@ -63,7 +68,7 @@ export const Filters = ({
           onHandleChange={updateVendors}
         />
       </div>
-      <Button disabled>Clear All</Button>
+      <Button onClick={clearFilters}>Clear All</Button>
     </Box>
   )
 }
