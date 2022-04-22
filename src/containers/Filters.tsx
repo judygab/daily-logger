@@ -5,6 +5,8 @@ import { DropdownWrapper } from "../components/DropdownWrapper";
 import { RangeSlider } from "../components/RangeSlider";
 import styles from "../../styles/Filters.module.css";
 import { AutoCompleteCheckboxes } from "../components/AutoCompleteChecboxes";
+import { clearFilters, updateFilters} from "../actions/actions";
+import { useSelector, useDispatch, RootStateOrAny } from "react-redux";
 
 export const Filters = ({
   categories,
@@ -17,6 +19,23 @@ export const Filters = ({
   amountRange: Array<number>,
   vendorNames: Array<string>
 }) => {
+  const dispatch = useDispatch();
+
+  // update categories
+  const updateCategories = (categories: Array<string>) => {
+    dispatch(updateFilters('categories', categories));
+  }
+
+  // update price range
+  const updatePrice = (price: Array<number>) => {
+      dispatch(updateFilters('price', price));
+  }
+
+  // update vendors
+  const updateVendors = (vendors: Array<string>) => {
+    dispatch(updateFilters('vendors', vendors));
+  }
+
   return (
     <Box sx={{
       width: '780px',
@@ -33,12 +52,15 @@ export const Filters = ({
         <MultipleSelectChip
           title="Categories"
           list={categories}
+          onHandleChange={updateCategories}
         />
         <DropdownWrapper title="Price">
-          <RangeSlider />
+          <RangeSlider onHandleChange={updatePrice} />
         </DropdownWrapper>
         <AutoCompleteCheckboxes
+          label="Vendors"
           options={vendorNames}
+          onHandleChange={updateVendors}
         />
       </div>
       <Button disabled>Clear All</Button>

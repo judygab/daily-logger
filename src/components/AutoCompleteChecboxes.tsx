@@ -9,14 +9,16 @@ const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
 const checkedIcon = <CheckBoxIcon fontSize="small" />;
 
 interface AutoCompleteProps {
+  label: string
   options: Array<string>
+  onHandleChange?: (updatedList: Array<string>) => void
 }
 
 interface Option {
   title: string
 }
 
-export const AutoCompleteCheckboxes: React.FC<AutoCompleteProps> = ({ options }) => {
+export const AutoCompleteCheckboxes: React.FC<AutoCompleteProps> = ({ label,options, onHandleChange }) => {
   return (
     <Autocomplete
       multiple
@@ -36,7 +38,7 @@ export const AutoCompleteCheckboxes: React.FC<AutoCompleteProps> = ({ options })
       )}
       style={{ width: 150, margin: "8px" }}
       renderInput={(params) => (
-        <TextField {...params} label="Checkboxes" placeholder="Favorites" />
+        <TextField {...params} label={label} />
       )}
     />
   );

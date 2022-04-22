@@ -6,7 +6,7 @@ function valuetext(value: number) {
   return `${value}°C`;
 }
 
-export const RangeSlider = () => {
+export const RangeSlider = ({ onHandleChange } : { onHandleChange : (updatedRange: Array<number>) => void}) => {
   const [value, setValue] = React.useState<number[]>([20, 37]);
 
   const handleChange = (event: Event, newValue: number | number[]) => {

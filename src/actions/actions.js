@@ -12,9 +12,9 @@ export const clearFilters = () => {
   }
 }
 
-export const updateFilters = (filters) => {
+export const updateFilters = (category, filters) => {
   return {
     type: actionConsts.update,
-    payload: filters
+    payload: {[category] : filters}
   }
 }

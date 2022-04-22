@@ -53,7 +53,6 @@ const Home: NextPage = () => {
           vendorNames={vendorNames}
         />
       </Box>
-      <button onClick={() => {dispatch(updateFilters(['fef']))}}>test</button>
       <DataTable
         columns={COLUMNS}
         data={transactions}

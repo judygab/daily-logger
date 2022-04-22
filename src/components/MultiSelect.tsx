@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Theme, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import OutlinedInput from '@mui/material/OutlinedInput';
@@ -31,17 +31,22 @@ function getStyles(name: string, personName: readonly string[], theme: Theme) {
 interface MultipleSelectChipProps {
   title: string
   list: Array<string>
+  onHandleChange: (updateFilters: Array<string>) => void
 }
 
-export const MultipleSelectChip: React.FC<MultipleSelectChipProps> = ({ title, list }) => {
+export const MultipleSelectChip: React.FC<MultipleSelectChipProps> = ({ title, list, onHandleChange }) => {
   const theme = useTheme();
-  const [personName, setPersonName] = React.useState<string[]>([]);
+  const [filterName, setFilterName] = React.useState<string[]>([]);
 
-  const handleChange = (event: SelectChangeEvent<typeof personName>) => {
+  useEffect(() => {
+    onHandleChange(filterName);
+  }, [filterName])
+
+  const handleChange = (event: SelectChangeEvent<typeof filterName>) => {
     const {
       target: { value },
     } = event;
-    setPersonName(
+    setFilterName(
       // On autofill we get a stringified value.
       typeof value === 'string' ? value.split(',') : value,
     );
@@ -56,7 +61,7 @@ export const MultipleSelectChip: React.FC<MultipleSelectChipProps> = ({ title, l
           id="demo-multiple-chip"
           multiple
           autoWidth
-          value={personName}
+          value={filterName}
           onChange={handleChange}
           input={<OutlinedInput id="select-multiple-chip" label="Chip" />}
           renderValue={(selected) => (
@@ -72,7 +77,7 @@ export const MultipleSelectChip: React.FC<MultipleSelectChipProps> = ({ title, l
             <MenuItem
               key={name}
               value={name}
-              style={getStyles(name, personName, theme)}
+              style={getStyles(name, filterName, theme)}
             >
               {name}
             </MenuItem>
