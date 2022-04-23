@@ -114,3 +114,21 @@
     flex-direction: column;
   }
 }
+
+.heroBackGround {
+  background-color: var(--blue);
+}
+
+.divider {
+  height: 0.5px;
+  background-color: rgba(0, 0, 0, 0.23);
+  width: 759px;
+  margin-bottom: -10px;
+  z-index: 1000;
+}
+
+.searchHeader {
+  color: white;
+  margin-top: 150px;
+  font-size: 36px;
+}
